@@ -14,7 +14,7 @@ import configparser
 import os
 from pathlib import Path
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 # pingtunnel:
 #   https://habr.com/ru/articles/1036100/
@@ -171,8 +171,11 @@ def main():
 
     if args.proxy_name:
         # Basic test
-        success = test_proxy(args.proxy_name, args.url)
-        sys.exit(0 if success else 1)
+        try:
+            success = test_proxy(args.proxy_name, args.url)
+            sys.exit(0 if success else 1)
+        except KeyboardInterrupt:
+            print("Ctrl-C? Okay, bye!")
     else:
         list_proxies()
         print("\nИспользование:")
