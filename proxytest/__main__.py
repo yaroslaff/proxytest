@@ -14,6 +14,7 @@ import configparser
 import os
 from pathlib import Path
 
+__version__ = '0.1.1'
 
 # pingtunnel:
 #   https://habr.com/ru/articles/1036100/
@@ -44,7 +45,7 @@ def list_proxies():
 def test_proxy(proxy_name: str, test_url: str = "http://ip-api.com/json/"):
     if proxy_name not in proxies:
         print(f"Ошибка: прокси '{proxy_name}' не найден")
-        print("Доступные прокси:", ", ".join(requests_proxies.keys()))
+        print("Доступные прокси:", ", ".join(proxies.keys()))
         return False
     
     proxy_config = proxies[proxy_name]

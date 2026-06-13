@@ -4,11 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "proxytest"
-version = "0.1.0"
+# version = "0.1.0"
 description = "My simple proxy tester"
 authors = [{ name = "Your Name" }]
 readme = "README.md"
 requires-python = ">=3.8"
+dynamic = ["version"]
 dependencies = [
     "requests[socks]"
 ]
@@ -25,3 +26,5 @@ proxytest = "proxytest.__main__:main"
 [tool.hatch.build.targets.wheel]
 packages = ["proxytest"]
 
+[tool.hatch.version]
+path = "proxytest/__main__.py"
