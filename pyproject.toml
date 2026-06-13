@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "proxytest"
+version = "0.1.0"
+description = "My simple proxy tester"
+authors = [{ name = "Your Name" }]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "requests[socks]"
+]
+keywords = [ "proxy", "test", "check", "http", "socks", "socks5h", "CLI", "utility" ]
+
+
+[project.urls]
+Homepage = "http://github.com/yaroslaff/proxytest"
+Issues = "http://github.com/yaroslaff/proxytest/issues"
+
+[project.scripts]
+proxytest = "proxytest.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["proxytest"]
+
